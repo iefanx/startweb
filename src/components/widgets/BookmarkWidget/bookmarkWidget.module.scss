@@ -1,16 +1,16 @@
-@import "/src/styles/variables.scss";
-@import "/src/styles/mixins.scss";
+@use "/src/styles/variables" as vars;
+@use "/src/styles/mixins" as mixins;
 
 .bookmarkWidget {
-	@include font-inter;
+	@include mixins.font-inter;
 	position: relative;
-	color: $widgetTextColor;
+	color: vars.$widgetTextColor;
 	padding: 0 20px;
-	height: $widgetHeight;
+	height: vars.$widgetHeight;
 	width: 100%;
 
-	border-radius: $widgetBorderRadius;
-	background-color: $widgetBackground;
+	border-radius: vars.$widgetBorderRadius;
+	background-color: vars.$widgetBackground;
 
 	display: flex;
 	align-items: center;
@@ -22,7 +22,7 @@
 		overflow: hidden;
 		display: grid;
 		place-items: center;
-		background-color: $widgetImageHolderColor;
+		background-color: vars.$widgetImageHolderColor;
 		.favicon {
 			--size: 52px;
 			padding: 12px;
@@ -50,7 +50,7 @@
 		width: $size;
 
 		border-radius: 100%;
-		background: $primaryColor;
+		background: vars.$primaryColor;
 
 		display: flex;
 		align-items: center;
@@ -63,5 +63,30 @@
 	.editButton {
 		bottom: -8px;
 		right: -8px;
+	}
+}
+
+@media (max-width: 600px) {
+	.bookmarkWidget {
+		padding: 0 8px;
+		height: calc(vars.$widgetHeight * 0.8);
+
+		.faviconHolder {
+			.favicon {
+				--size: 42px;
+				padding: 10px;
+			}
+		}
+
+		.nameWrapper {
+			font-size: 18px;
+
+		}
+
+		.button {
+			$size: 20px;
+			height: $size;
+			width: $size;
+		}
 	}
 }
