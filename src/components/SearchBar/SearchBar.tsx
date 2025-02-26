@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import FullScreenSearch from "../FullScreenSearch/FullScreenSearch";
 import styles from "./searchbar.module.scss";
 
