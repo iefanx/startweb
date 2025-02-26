@@ -1,5 +1,5 @@
-@import "/src/styles/mixins.scss";
-@import "/src/styles/variables.scss";
+@use "/src/styles/mixins" as *;
+@use "/src/styles/variables" as *;
 
 .widgetHolderWrapper {
 	padding: 8px;

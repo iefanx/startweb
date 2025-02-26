@@ -1,0 +1,9 @@
+const sass = require('sass');
+
+// ...existing code...
+
+const result = sass.compile('path/to/your/file.scss', {
+  // ...existing options...
+});
+
+// ...existing code...
