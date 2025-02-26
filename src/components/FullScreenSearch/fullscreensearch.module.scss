@@ -1,0 +1,29 @@
+.fullScreenSearch {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.closeButton {
+	background: none;
+	border: none;
+	font-size: 24px;
+	color: white;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	cursor: pointer;
+}
+
+.searchInput {
+	width: 80%;
+	padding: 10px;
+	font-size: 24px;
+}
