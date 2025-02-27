@@ -60,10 +60,9 @@ color: $modalTextColor;
 	}
 }
 .heading {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 800;
   color: $modalTextColor;
-  text-decoration: underline;
   background: linear-gradient(to right, #9b72cb, #4285f4, #d96570);
   background-clip: text;
   -webkit-background-clip: text;
@@ -113,7 +112,6 @@ color: $modalTextColor;
   border-radius: 9999px;
   font-weight: 600;
   color: $modalButtonTextColor;
-  text-decoration: underline;
 
   background-clip: text;
   -webkit-background-clip: text;
@@ -132,16 +130,17 @@ color: $modalTextColor;
 	position: absolute;
 	top: -10px;
 	right: -10px;
-	background: none;
-	border: none;
-	color: $modalTextColor;
+	background: linear-gradient(to right, #9b72cb, #4285f4, #d96570);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 	font-size: 16px;
 	cursor: pointer;
 }
 
 .editButton {
 	color: $modalTextColor;
-  text-decoration: underline;
+
   background: linear-gradient(to right, #9b72cb, #4285f4, #d96570);
   background-clip: text;
   -webkit-background-clip: text;
