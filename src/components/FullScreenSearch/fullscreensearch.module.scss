@@ -3,6 +3,7 @@
 
 .fullScreenSearch {
 	position: fixed;
+	
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -18,12 +19,12 @@
 .closeButton {
 
 color: $modalTextColor;
+  text-decoration: underline;
   background: linear-gradient(to right, #9b72cb, #4285f4, #d96570);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 	position: absolute;
-	font-size: 18px;
 	top: 20px;
 	right: 20px;
 	
@@ -32,6 +33,7 @@ color: $modalTextColor;
 
 .searchContainer {
 	margin-top: 2%;
+	background-color: black;
 
 	padding: 20px;
 	border-radius: 10px;
@@ -40,40 +42,41 @@ color: $modalTextColor;
 	flex-direction: column;
 	
 	align-items: center;
-}
-
-h2 {
-    display: block;
-    font-size: 1.5em;
-    margin-block-start: 4px;
-    margin-block-end: 4px;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
-    unicode-bidi: isolate;
+	width: calc(100% - 20px);
 }
 
 .searchInput {
 	width: calc(100% - 20px);
 	padding: 10px;
 	font-size: 18px;
-	background-color: $modalButtonTextColor;
-	border: none;
+	background: $modalTextColor;
+
+	border: 1.5px solid $modalButtonTextColor;
+	font-weight: 800;
+
 	border-radius: 9999px;
 	margin-bottom: 20px;
-	box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+
+	background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
 	position: relative;
 	transition: all 0.3s ease-in-out;
-	color: $modalButtonColor;
+
+	
 	&:focus {
-		box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-		transform: scale(1.05);
+		outline: none;
+		box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+
+		transform: scale(1.02);
 	}
 }
 .heading {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 800;
   color: $modalTextColor;
+  text-decoration: underline;
   background: linear-gradient(to right, #9b72cb, #4285f4, #d96570);
   background-clip: text;
   -webkit-background-clip: text;
@@ -123,6 +126,7 @@ h2 {
   border-radius: 9999px;
   font-weight: 600;
   color: $modalButtonTextColor;
+  text-decoration: underline;
 
   background-clip: text;
   -webkit-background-clip: text;
@@ -141,17 +145,16 @@ h2 {
 	position: absolute;
 	top: -10px;
 	right: -10px;
-	background: linear-gradient(to right, #9b72cb, #4285f4, #d96570);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+	background: none;
+	border: none;
+	color: $modalTextColor;
 	font-size: 16px;
 	cursor: pointer;
 }
 
 .editButton {
 	color: $modalTextColor;
-
+  text-decoration: underline;
   background: linear-gradient(to right, #9b72cb, #4285f4, #d96570);
   background-clip: text;
   -webkit-background-clip: text;
@@ -208,6 +211,17 @@ h2 {
 		background-color: $modalButtonColor;
 		color: #fff;
 	}
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 4px;
+    margin-block-end: 4px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
 }
 
 .dropdown {
