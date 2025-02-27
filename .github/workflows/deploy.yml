@@ -22,7 +22,7 @@ concurrency:
 
 # Environment variables
 env:
-  BASE_URL: "/minime"
+  BASE_URL: "/StartWeb"
 
 jobs:
   # Single deploy job since we're just deploying
