@@ -3,8 +3,8 @@
 
 .searchBar {
 	position: absolute;
-	top: 6%;
-	right: 4%;
+	top: 2%;
+	right: 2%;
 	background-color: #1e1e1e;
 	border-radius: 8px;
 	display: flex;
@@ -36,7 +36,7 @@
 .searchLabel {
 	font-family: 'Arial', sans-serif;
 	font-size: 12px;
-	font-weight: 600;
+	font-weight: $font-weight-bold;
 	color: #9c988d;
 	transition: color 0.3s ease;
 }
