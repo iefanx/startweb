@@ -42,6 +42,17 @@ color: $modalTextColor;
 	align-items: center;
 }
 
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 4px;
+    margin-block-end: 4px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
 .searchInput {
 	width: calc(100% - 20px);
 	padding: 10px;
