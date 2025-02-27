@@ -1,13 +1,13 @@
-@use "/src/styles/variables" as *;
-@use "/src/styles/mixins" as *;
+@use "/src/styles/mixins.scss" as *;
+@use "/src/styles/variables.scss" as *;
 
 .modalContent {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
 	color: $modalTextColor;
-	gap: 12px;
-	padding-top: 14px;
+	gap: 8px;
+	padding-top: 8px;
 	.formInputHolder {
 		display: inline-flex;
 		align-items: end;
@@ -25,17 +25,50 @@
 	}
 	.modalFooter {
 		width: 100%;
-		padding-top: 24px;
+		padding-top: 8px;
 		display: inline-flex;
-		justify-content: end;
-		gap: 10px;
+		justify-content: center;
+		gap: 24px;
 		button {
-			@include font-inter;
+			font: 1em sans-serif;
 			font-weight: 800;
-			background-color: $modalButtonColor;
-			color: $modalButtonTextColor;
-			padding: 8px 16px;
-			border-radius: 6px;
+			
+			padding: 8px 14px;
+			border-radius: 8px;
+			font-size: 20px;
+			font-weight: bolder;
+
 		}
 	}
+}
+
+.closeButton {
+
+	display: inline-flex;	
+	justify-content: flex-end;
+
+
+	border: none;
+	justify-self: end;
+	background-color: $modalButtonTextColor;
+	color: $modalButtonColor;
+	
+
+	font-size: 24px;
+
+	cursor: pointer;
+
+
+}
+
+.pasteButton {
+	@include font-inter;
+	font-weight: 800;
+	
+
+	background-color: $modalButtonColor;
+	color: $modalButtonTextColor;
+	padding: 12px 24px;
+	border-radius: 8px;
+	font-size: 16px;
 }

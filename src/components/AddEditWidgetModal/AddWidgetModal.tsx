@@ -1,7 +1,6 @@
-import { type FormEvent } from "react";
+import { type FormEvent, useState } from "react";
 import { WidgetType, type WidgetData } from "../../utils/widgetsUtils";
 import Modal from "../shared/Modal/Modal";
-import InputField from "../shared/InputField/InputField";
 import styles from "./addEditWidgetModal.module.scss";
 
 type AddEditWidgetModalProps = {
@@ -12,6 +11,19 @@ type AddEditWidgetModalProps = {
 	widgetToEditData?: WidgetData;
 };
 
+const extractNameFromUrl = (url: string): string => {
+	try {
+		const { hostname } = new URL(url);
+		const parts = hostname.split('.');
+		if (parts.length > 2) {
+			return parts[0]; // subdomain
+		}
+		return parts.slice(0, -1).join('.'); // domain without TLD
+	} catch {
+		return "Invalid URL";
+	}
+};
+
 const AddEditWidgetModal = ({
 	isEditModal,
 	show,
@@ -19,50 +31,46 @@ const AddEditWidgetModal = ({
 	addEditHandler,
 	widgetToEditData,
 }: AddEditWidgetModalProps) => {
-	const onFormSubmit = (e: FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
-		const formData = new FormData(e.currentTarget);
+	const [error, setError] = useState<string | null>(null);
 
-		const nameFromForm = formData.get("name")?.toString();
-		const linkFromForm = formData.get("url")?.toString() || "";
+	const handlePasteClick = async () => {
+		try {
+			const text = await navigator.clipboard.readText();
+			if (!text) {
+				setError("Clipboard is empty!");
+				return;
+			}
 
-		if (!linkFromForm) {
-			alert("Link is Invalid!");
-			return;
+			const nameFromUrl = extractNameFromUrl(text);
+
+			const newWidgetData: WidgetData = {
+				type: WidgetType.BookmarkWidget,
+				link: text,
+				name: nameFromUrl,
+			};
+
+			addEditHandler(newWidgetData);
+		} catch (err) {
+			setError("Failed to read clipboard contents!");
 		}
-		const newWidgetData: WidgetData = {
-			type: WidgetType.BookmarkWidget,
-			link: linkFromForm,
-			name: nameFromForm,
-		};
-
-		addEditHandler(newWidgetData);
 	};
 
-	const defaultName = isEditModal ? widgetToEditData?.name || "" : "";
-	const defaultLink = isEditModal ? widgetToEditData?.link || "" : "";
 	return (
 		<Modal showModal={show} headerText={`${isEditModal ? "Edit" : "New"} Bookmark`}>
-			<form className={styles.modalContent} onSubmit={onFormSubmit}>
-				<div className={styles.formInputHolder}>
-					<InputField id="name" label="Name" defaultValue={defaultName} />
-				</div>
-				<div className={styles.formInputHolder}>
-					<InputField
-						id="url"
-						label="Link"
-						type="url"
-						required
-						defaultValue={defaultLink}
-					/>
-				</div>
+			
+			<div className={styles.modalContent}>
+				<p>Copy the URL you want to add to the clipboard, then click the "Paste" button.</p>
+				{error && <p className={styles.error}>{error}</p>}
 				<div className={styles.modalFooter}>
-					<button type="button" onClick={onClose}>
-						Cancel
+					
+					<button type="button" className={styles.closeButton} onClick={onClose}>
+				Close
+			</button>
+			<button type="button" className={styles.pasteButton} onClick={handlePasteClick}>
+						Paste
 					</button>
-					<button type="submit">{isEditModal ? "Update" : "Add"}</button>
 				</div>
-			</form>
+			</div>
 		</Modal>
 	);
 };
