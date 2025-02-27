@@ -4,12 +4,14 @@
 
 :root {
 	@include font-inter;
-	line-height: 1.5;
-	font-weight: 400;
+	line-height: 1.2;
+	font-weight: $font-weight-bold;
+	font-size: 16px;
+	
 
 	background-color: $appBackground;
 
-	font-synthesis: none;
+
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;

@@ -6,10 +6,10 @@
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
-	padding-right: 14px;
+	padding-right: 24px;
 	p,
 	a {
-		font-size: 8px;
+		font-size: 14px;
 		font-weight: 600;
 		color: $appFooterTextColor;
 		text-decoration: none;
@@ -24,7 +24,7 @@
 		vertical-align: middle;
 		margin-left: 8px;
 		.github {
-			font-size: 16px;
+			font-size: 20px;
 			font-weight: 800;
 			margin-left: 2px;
 			.icon {
