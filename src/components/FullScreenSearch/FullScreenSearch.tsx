@@ -70,7 +70,7 @@ const FullScreenSearch: React.FC<FullScreenSearchProps> = ({ onClose }) => {
 
 	return (
 		<div className={styles.fullScreenSearch}>
-            <h2 className={styles.heading}>Universal Web Search</h2>
+            <h2 className={styles.heading}>Universal Search</h2>
 			<button onClick={onClose} className={styles.closeButton}>
 							✖
 			</button>

@@ -16,14 +16,18 @@
 }
 
 .closeButton {
-	background: none;
-	border: none;
-	font-size: 28px;
-	color: $modalTextColor;
+
+color: $modalTextColor;
+  text-decoration: underline;
+  background: linear-gradient(to right, #9b72cb, #4285f4, #d96570);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 	position: absolute;
 	top: 20px;
 	right: 20px;
-	cursor: pointer;
+	
+	z-index: 10000;
 }
 
 .searchContainer {
@@ -136,8 +140,12 @@
 }
 
 .editButton {
-	background-color: #1e1e1e;
-	color: #9c988d;
+	color: $modalTextColor;
+  text-decoration: underline;
+  background: linear-gradient(to right, #9b72cb, #4285f4, #d96570);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 	padding: 8px 16px;
 	border-radius: 6px;
 	font-weight: bolder;
