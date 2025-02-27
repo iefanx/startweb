@@ -3,9 +3,12 @@
 
 .searchBar {
 	position: absolute;
-	top: 4%;
+	top: 2%;
 	right: 2%;
-	background-color: #1e1e1e;
+	background: linear-gradient(to right, #9b72cb, #4285f4, #d96570);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 	border-radius: 8px;
 	display: flex;
 	align-items: center;
@@ -24,7 +27,7 @@
 	border: none;
 	font-size: 14px;
 	cursor: pointer;
-	color: #a7a59d;
+	color: #9b72cb;
 	margin-right: 8px;
 	transition: color 0.3s ease;
 }
@@ -36,7 +39,7 @@
 .searchLabel {
 	font-family: 'Arial', sans-serif;
 	font-size: 12px;
-
+	font-weight: $font-weight-bold;
 	color: #9c988d;
 	transition: color 0.3s ease;
 }

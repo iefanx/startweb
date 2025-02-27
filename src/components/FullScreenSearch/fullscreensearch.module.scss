@@ -12,7 +12,7 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	z-index: 1000;
+	z-index: 9;
 }
 
 .closeButton {
@@ -27,11 +27,11 @@
 }
 
 .searchContainer {
-	margin-top: 10%;
-	background-color: $appBackground;
+	margin-top: 2%;
+
 	padding: 20px;
 	border-radius: 10px;
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
 	display: flex;
 	flex-direction: column;
 	
@@ -39,14 +39,14 @@
 }
 
 .searchInput {
-	width: calc(100% - 40px);
+	width: calc(100% - 20px);
 	padding: 10px;
 	font-size: 18px;
 	background-color: $modalButtonTextColor;
-	border: 1px solid $modalButtonColor;
-	border-radius: 5px;
+	border: none;
+	border-radius: 9999px;
 	margin-bottom: 20px;
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
 	position: relative;
 	transition: all 0.3s ease-in-out;
 	color: $modalButtonColor;
@@ -55,7 +55,16 @@
 		transform: scale(1.05);
 	}
 }
-
+.heading {
+  font-size: 28px;
+  font-weight: 800;
+  color: $modalTextColor;
+  text-decoration: underline;
+  background: linear-gradient(to right, #9b72cb, #4285f4, #d96570);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .animatedInput {
 	animation: fadeIn 0.5s ease-in-out;
 }
@@ -92,21 +101,27 @@
 }
 
 .bangButton {
-	background-color: #1e1e1e;
-	color: #9c988d;
-	padding: 4px 10px;
-	border-radius: 6px;
-	font-weight: bolder;
-	cursor: pointer;
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-	&:hover {
-		background-color: $modalBackgroundColor;
-		color: #c7c4c4;
-	}
-	&:active {
-		background-color: $modalButtonColor;
-		color: #fff;
-	}
+
+  font-size: 12px;
+  background: $modalButtonColor;
+  border: 1px solid $modalButtonTextColor;
+  padding: 4px 8px;
+  border-radius: 9999px;
+  font-weight: 600;
+  color: $modalButtonTextColor;
+  text-decoration: underline;
+
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  cursor: pointer;
+  transition: all 0.3s ease;
+  &:hover {
+	background-color: $modalButtonColor;
+	color: $modalButtonTextColor;
+  }
+	
 }
 
 .deleteButton {
