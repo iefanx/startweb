@@ -6,7 +6,7 @@
 
 	color: $clockColor;
 
-	font-size: 36px;
+	font-size: 26px;
 	font-weight: 800;
 	width: auto;
 
@@ -14,6 +14,6 @@
 		@include font-inter;
 
 		font-style: 800;
-		font-size: 14px;
+		font-size: 10px;
 	}
 }
