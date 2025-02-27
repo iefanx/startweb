@@ -2,8 +2,10 @@ import styles from "./footer.module.scss";
 
 const Footer = () => {
 	const clearLocalStorage = () => {
-		localStorage.clear();
-		alert("Local storage cleared!");
+		if (window.confirm("Are you sure you want to clear local storage?")) {
+			localStorage.clear();
+			alert("Local storage cleared!");
+		}
 	};
 
 	return (
@@ -11,10 +13,9 @@ const Footer = () => {
 			{/* <p className={styles.description}>
 				PWA designed to manage all your web apps in one place with a universal search option.
 			</p> */}
-			<button onClick={clearLocalStorage} style={{ color: "#9c988d" , border: "none", padding: "2px", borderRadius: "5px", fontWeight: "bold", cursor: "pointer"}}>
+			<button onClick={clearLocalStorage} style={{ color: "#9c988d" , border: "none", paddingBottom: "8px", borderRadius: "5px", fontWeight: "bold", cursor: "pointer"}}>
 				Reset
 			</button>
-			
 		</footer>
 	);
 };
