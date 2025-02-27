@@ -1,4 +1,4 @@
-import { type FormEvent, useState } from "react";
+import { useState } from "react";
 import { WidgetType, type WidgetData } from "../../utils/widgetsUtils";
 import Modal from "../shared/Modal/Modal";
 import styles from "./addEditWidgetModal.module.scss";
@@ -8,7 +8,7 @@ type AddEditWidgetModalProps = {
 	show: boolean;
 	onClose: () => void;
 	addEditHandler: (widgetData: WidgetData) => void;
-	widgetToEditData?: WidgetData;
+	// Removed unused widgetToEditData
 };
 
 const extractNameFromUrl = (url: string): string => {
@@ -29,7 +29,6 @@ const AddEditWidgetModal = ({
 	show,
 	onClose,
 	addEditHandler,
-	widgetToEditData,
 }: AddEditWidgetModalProps) => {
 	const [error, setError] = useState<string | null>(null);
 
@@ -57,16 +56,14 @@ const AddEditWidgetModal = ({
 
 	return (
 		<Modal showModal={show} headerText={`${isEditModal ? "Edit" : "New"} Bookmark`}>
-			
 			<div className={styles.modalContent}>
 				<p>Copy the URL you want to add to the clipboard, then click the "Paste" button.</p>
 				{error && <p className={styles.error}>{error}</p>}
 				<div className={styles.modalFooter}>
-					
 					<button type="button" className={styles.closeButton} onClick={onClose}>
-				Close
-			</button>
-			<button type="button" className={styles.pasteButton} onClick={handlePasteClick}>
+						Close
+					</button>
+					<button type="button" className={styles.pasteButton} onClick={handlePasteClick}>
 						Paste
 					</button>
 				</div>
