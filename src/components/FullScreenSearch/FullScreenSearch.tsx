@@ -46,7 +46,7 @@ const FullScreenSearch: React.FC<FullScreenSearchProps> = ({ onClose }) => {
 
 	const handleSearch = (bang: string) => {
 		const searchQuery = `${bang} ${query}`.trim();
-		window.location.href = `https://duckduckgo.com/?q=${encodeURIComponent(searchQuery)}`;
+		window.location.href = `https://unduck.link?q=${encodeURIComponent(searchQuery)}`;
 	};
 
 	const addCustomBang = () => {
@@ -63,17 +63,21 @@ const FullScreenSearch: React.FC<FullScreenSearchProps> = ({ onClose }) => {
 		setBangs((prevBangs) => prevBangs.filter(bang => bang.name !== bangName));
 	};
 
+	const getFaviconUrl = (bangName: string) => {
+		const domain = bangName.slice(1);
+		return `https://icons.duckduckgo.com/ip3/${domain}.com.ico`;
+	};
+
 	return (
 		<div className={styles.fullScreenSearch}>
 			<button onClick={onClose} className={styles.closeButton}>
-					✖
+						✖
 			</button>
 			<div className={styles.searchContainer}>
 				<input
 					type="text"
 					placeholder="Search.."
-					className={styles.searchInput}
-					style={{ width: "100%", backgroundColor: "black", color: "white", borderRadius: "10px", padding: "10px", border: "none" }}
+					className={`${styles.searchInput} ${styles.animatedInput}`}
 					value={query}
 					onChange={(e) => setQuery(e.target.value)}
 					onKeyPress={(e) => {
@@ -89,10 +93,13 @@ const FullScreenSearch: React.FC<FullScreenSearchProps> = ({ onClose }) => {
 				<div className={styles.bangOptions}>
 					{bangs.map((bang) => (
 						<div key={bang.name} className={styles.bangButtonContainer}>
+							
 							<button
+                        
 								className={styles.bangButton}
 								onClick={() => handleSearch(bang.name)}
 							>
+                                <img src={getFaviconUrl(bang.name)} alt={`${bang.name} icon`} className={styles.bangIcon} />
 								{bang.name}
 							</button>
 							{isEditing && (
@@ -100,7 +107,7 @@ const FullScreenSearch: React.FC<FullScreenSearchProps> = ({ onClose }) => {
 									className={styles.deleteButton}
 									onClick={() => deleteBang(bang.name)}
 								>
-										✖
+											✖
 								</button>
 							)}
 						</div>
@@ -109,8 +116,8 @@ const FullScreenSearch: React.FC<FullScreenSearchProps> = ({ onClose }) => {
 				
 			</div>
             <button onClick={() => setIsEditing(!isEditing)} className={styles.editButton}>
-					{isEditing ? "Done" : "Edit"}
-				</button>
+						{isEditing ? "Done" : "Edit"}
+					</button>
 		</div>
 	);
 };

@@ -34,6 +34,7 @@
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 	display: flex;
 	flex-direction: column;
+	
 	align-items: center;
 }
 
@@ -41,11 +42,33 @@
 	width: calc(100% - 40px);
 	padding: 10px;
 	font-size: 18px;
+	background-color: $modalButtonTextColor;
 	border: 1px solid $modalButtonColor;
 	border-radius: 5px;
 	margin-bottom: 20px;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 	position: relative;
+	transition: all 0.3s ease-in-out;
+	color: $modalButtonColor;
+	&:focus {
+		box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+		transform: scale(1.05);
+	}
+}
+
+.animatedInput {
+	animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 .bangOptions {
@@ -57,12 +80,21 @@
 
 .bangButtonContainer {
 	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+.bangIcon {
+	width: 14px;
+	height: 14px;
+	margin-right: 4px;
+	padding-top: 2px;
 }
 
 .bangButton {
 	background-color: #1e1e1e;
 	color: #9c988d;
-	padding: 8px 16px;
+	padding: 4px 10px;
 	border-radius: 6px;
 	font-weight: bolder;
 	cursor: pointer;
@@ -83,7 +115,7 @@
 	right: -10px;
 	background: none;
 	border: none;
-	color: red;
+	color: $modalTextColor;
 	font-size: 16px;
 	cursor: pointer;
 }
